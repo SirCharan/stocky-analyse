@@ -40,9 +40,8 @@ export default function Sidebar({ open, onClose }: SidebarProps) {
       <div className={cn('sidebar-overlay', open && 'open')} onClick={onClose} />
       <nav className={cn('sidebar', open && 'open')}>
         <div className="sidebar-logo">
-          <img src="/logo-mark.png" alt="Stocky" className="h-8 w-8 object-contain" />
-          <span className="ml-2 text-lg font-bold tracking-wide" style={{ color: 'var(--text-primary)' }}>
-            STOCKY <span style={{ color: 'var(--accent)', fontWeight: 400 }}>Analyse</span>
+          <span className="text-2xl italic font-display" style={{ color: 'var(--text-primary)' }}>
+            Stocky
           </span>
         </div>
         <div className="sidebar-nav">
