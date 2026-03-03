@@ -1,0 +1,29 @@
+# AI Agent Instructions for Trade Nexus
+
+## Project Description
+Trade Nexus is a web-based F&O P&L analytics dashboard. It parses Zerodha trading reports (Excel .xlsx files) and displays interactive charts and tables across 5 analytical tabs.
+
+## For AI Agents
+- This is a React + TypeScript frontend with a Python serverless backend
+- The main API endpoint is POST /api/upload which accepts multipart form data
+- All analytics are computed server-side in api/upload.py
+- The frontend stores the full report JSON in React Context after upload
+- No database is used — all data is ephemeral
+
+## Key Context Files
+- llm.md — Detailed technical context for LLMs
+- README.md — Setup and usage instructions
+- src/types/report.ts — TypeScript type definitions for all data structures
+- api/upload.py — Complete backend logic
+
+## Modification Guidelines
+- Keep the dark theme consistent (see CSS variables in src/index.css)
+- Currency formatting must use Indian notation (Lakhs/Crores)
+- All new metrics should flow through: api/upload.py → types/report.ts → page component
+- Charts use Recharts with dark tooltip styling from ChartWrapper.tsx
+- Tables use TanStack Table v8 with DataTable.tsx wrapper
+
+## Do Not
+- Store uploaded files on the server
+- Add authentication (this is a client-side tool)
+- Change the Excel parsing logic without testing against Zerodha report format
